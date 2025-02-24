@@ -48,6 +48,7 @@ Through this project, you'll learn about:
 - **Anthropic Claude**: Advanced LLM for natural language processing and better at tool calling
 - **HuggingFace**: For text embeddings
 - **python-dotenv**: For environment variable management
+- **OpenAI apikey**: Go to https://platform.openai.com/ and create an account to get an api key - you need to add payment method to the account and top it up with credits to use. 
 
 ## 📋 Prerequisites
 

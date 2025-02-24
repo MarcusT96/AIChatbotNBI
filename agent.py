@@ -11,13 +11,16 @@ from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import InMemoryVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_openai import OpenAIEmbeddings
 
 # Load environment variables
 load_dotenv()
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 # Set up vector store
-embeddings_model = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-large-instruct")
+#embeddings_model = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-large-instruct")
+#OpenAI embeddings can also be used, declare "OPENAI_API_KEY" in .env file and uncomment the following line. You also need to pip install langchain-openai
+embeddings_model = OpenAIEmbeddings(model="text-embedding-3-large", api_key=os.getenv("OPENAI_API_KEY"))
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
 loader = TextLoader("yoda_galactic_feasts.txt")
 document = loader.load()

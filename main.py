@@ -21,6 +21,8 @@ llm = ChatGroq(
 )
 
 embeddings_model = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-large-instruct")
+#OpenAI embeddings can also be used, declare "OPENAI_API_KEY" in .env file and uncomment the following line
+#embeddings_model = OpenAIEmbeddings(model="text-embedding-3-large", api_key=os.getenv("OPENAI_API_KEY"))
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
 
