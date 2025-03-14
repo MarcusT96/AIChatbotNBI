@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 import os
 import random
 from langgraph.checkpoint.memory import MemorySaver
+from langchain_openai import ChatOpenAI
 
 # Load environment variables from .env file
 load_dotenv()
@@ -19,10 +20,10 @@ load_dotenv()
 # Initialize the AI model (Claude 3.5 Sonnet)
 # This is the main language model that will process user inputs and generate responses
 # temperature: Controls randomness in responses (0.0 = deterministic, 1.0 = more randomm 2.0 = complete randomness)
-model = ChatAnthropic(
-    model_name="claude-3-5-sonnet-20241022",
+model = ChatOpenAI(
+    model_name="gpt-4o-mini",
     temperature=0.6,
-    api_key=os.getenv("ANTHROPIC_API_KEY")  # Get API key from environment variables
+    api_key=os.getenv("OPENAI_API_KEY")  # Get API key from environment variables
 )
 
 # Initialize the OpenAI model (GPT-4o)

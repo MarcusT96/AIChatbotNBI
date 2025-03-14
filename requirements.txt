@@ -11,3 +11,4 @@ pydantic
 requests
 python-multipart
 langchain-openai
+openai-agents
